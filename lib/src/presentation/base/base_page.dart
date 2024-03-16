@@ -84,7 +84,8 @@ abstract class BasePage extends HookConsumerWidget {
   Widget? buildFloatingActionButton(WidgetRef ref) => null;
 
   @protected
-  EdgeInsetsGeometry get pagePadding => EdgeInsets.zero;
+  EdgeInsetsGeometry get pagePadding =>
+      const EdgeInsets.symmetric(horizontal: 16);
 
   @protected
   Color? get unSafeAreaColor => Colors.white;

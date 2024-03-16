@@ -44,11 +44,6 @@ class HomePage extends BasePage with HomeState, HomeEvent {
   }
 
   @override
-  EdgeInsetsGeometry get pagePadding => const EdgeInsets.symmetric(
-        horizontal: 16,
-      );
-
-  @override
   void onInit(WidgetRef ref) {
     setFocusNode(ref);
   }

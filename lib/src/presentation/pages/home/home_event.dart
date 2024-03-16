@@ -10,7 +10,7 @@ mixin class HomeEvent {
       () {
         if (focusNode.hasFocus) {
           focusNode.unfocus();
-          ref.context.pushNamed(HomeRouteData.name);
+          ref.context.pushNamed(SearchRouteData.name);
         }
       },
     );
