@@ -1,10 +1,8 @@
 name: github_search_app
 description: Github Search App
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
-
-
 
 environment:
   sdk: ^3.3.1
@@ -25,7 +23,6 @@ dependencies:
 dev_dependencies:
   build_runner: ^2.4.8
   custom_lint: ^0.6.2
-  flutter_hooks_lint: ^1.2.0
   flutter_test:
     sdk: flutter
   freezed: ^2.4.7
