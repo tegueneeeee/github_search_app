@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/src/consumer.dart';
 import 'package:gap/gap.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
-import 'package:github_search_app/src/presentation/base/base_widget.dart';
 import 'package:github_search_app/src/presentation/pages/home/home_event.dart';
 import 'package:github_search_app/src/presentation/pages/home/home_state.dart';
 

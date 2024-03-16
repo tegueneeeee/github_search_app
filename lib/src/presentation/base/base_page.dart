@@ -40,7 +40,7 @@ abstract class BasePage extends HookConsumerWidget {
             ? null
             : () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Container(
-          color: unSafeAreaColor,
+          color: unSafeAreaColor(context),
           child: wrapWithSafeArea
               ? Padding(
                   padding: pagePadding,
@@ -61,7 +61,7 @@ abstract class BasePage extends HookConsumerWidget {
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         appBar: buildAppBar(context, ref),
         body: buildBody(context, ref),
-        backgroundColor: screenBackgroundColor,
+        backgroundColor: screenBackgroundColor(context),
         bottomNavigationBar: buildBottomNavigationBar(context),
         bottomSheet: buildBottomSheet(ref),
         floatingActionButtonLocation: floatingActionButtonLocation,
@@ -88,7 +88,8 @@ abstract class BasePage extends HookConsumerWidget {
       const EdgeInsets.symmetric(horizontal: 16);
 
   @protected
-  Color? get unSafeAreaColor => Colors.white;
+  Color? unSafeAreaColor(BuildContext context) =>
+      Theme.of(context).colorScheme.background;
 
   @protected
   bool get resizeToAvoidBottomInset => true;
@@ -103,7 +104,8 @@ abstract class BasePage extends HookConsumerWidget {
   bool get canPop => true;
 
   @protected
-  Color? get screenBackgroundColor => Colors.white;
+  Color? screenBackgroundColor(BuildContext context) =>
+      Theme.of(context).colorScheme.background;
 
   @protected
   bool get wrapWithSafeArea => true;
