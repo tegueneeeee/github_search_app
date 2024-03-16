@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_search_app/src/core/router/router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class App extends ConsumerWidget {
@@ -6,12 +7,9 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Loaded'),
-        ),
-      ),
+    final router = ref.watch(routerProvider);
+    return MaterialApp.router(
+      routerConfig: router,
     );
   }
 }
