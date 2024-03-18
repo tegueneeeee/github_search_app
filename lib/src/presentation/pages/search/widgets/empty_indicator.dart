@@ -1,22 +1,14 @@
 part of '../search_page.dart';
 
-class _EmptyIndicator extends HookConsumerWidget {
+class _EmptyIndicator extends HookConsumerWidget with SearchState {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final scrollController = useScrollController();
     return AnimatedOpacity(
-      opacity: ref.watch(
-        searchViewModelProvider.select(
-          (value) => value.requireValue.searchText.isEmpty ? 1 : 0,
-        ),
-      ),
+      opacity: searchText(ref).isEmpty ? 1 : 0,
       duration: const Duration(milliseconds: 300),
       child: IgnorePointer(
-        ignoring: ref.watch(
-          searchViewModelProvider.select(
-            (value) => value.requireValue.searchText.isNotEmpty,
-          ),
-        ),
+        ignoring: searchText(ref).isNotEmpty,
         child: Scrollbar(
           controller: scrollController,
           child: CustomScrollView(

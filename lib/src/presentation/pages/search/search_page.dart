@@ -4,21 +4,23 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element_category.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
-import 'package:github_search_app/src/presentation/pages/search/view_model/search_view_model.dart';
+import 'package:github_search_app/src/presentation/pages/search/providers/search_text_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+part 'search_event.dart';
+part 'search_state.dart';
 part 'widgets/app_bar.dart';
 part 'widgets/empty_indicator.dart';
 part 'widgets/option_list_view.dart';
 
-class SearchPage extends BasePage {
+class SearchPage extends BasePage with SearchState, SearchEvent {
   const SearchPage({super.key});
 
   @override
   Widget buildBody(BuildContext context, WidgetRef ref) => Stack(
         children: [
-          _OptionListView(),
+          if (searchText(ref).isNotEmpty) _OptionListView(),
           _EmptyIndicator(),
         ],
       );

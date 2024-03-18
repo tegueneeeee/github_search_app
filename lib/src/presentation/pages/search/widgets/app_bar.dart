@@ -1,6 +1,8 @@
 part of '../search_page.dart';
 
-class _AppBar extends HookConsumerWidget implements PreferredSizeWidget {
+class _AppBar extends HookConsumerWidget
+    with SearchEvent
+    implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = useTextEditingController();
@@ -27,14 +29,12 @@ class _AppBar extends HookConsumerWidget implements PreferredSizeWidget {
                     child: CupertinoSearchTextField(
                       controller: controller,
                       placeholder: 'Search GitHub',
-                      onChanged: (text) =>
-                          ref.read(searchViewModelProvider.notifier).onEvent(
-                                SearchEventOnChanged(text: text),
-                              ),
+                      onChanged: (text) => onChanged(ref, text),
                       onSubmitted: (query) {
-                        ref.read(searchViewModelProvider.notifier).onEvent(
-                              SearchEventOnSubmitted(query: query),
-                            );
+                        if (query.isEmpty) {
+                          return;
+                        }
+                        onSubmitted(ref, query);
                         controller.clear();
                       },
                       autofocus: true,
