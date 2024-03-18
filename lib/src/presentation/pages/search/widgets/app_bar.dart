@@ -30,13 +30,11 @@ class _AppBar extends HookConsumerWidget
                       controller: controller,
                       placeholder: 'Search GitHub',
                       onChanged: (text) => onChanged(ref, text),
-                      onSubmitted: (query) {
-                        if (query.isEmpty) {
-                          return;
-                        }
-                        onSubmitted(ref, query);
-                        controller.clear();
-                      },
+                      onSubmitted: (query) => onSubmitted(
+                        ref,
+                        query: query,
+                        controller: controller,
+                      ),
                       autofocus: true,
                     ),
                   ),

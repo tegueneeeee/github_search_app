@@ -8,7 +8,18 @@ class _OptionListView extends ConsumerWidget with SearchState {
             delegate: SliverChildBuilderDelegate(
               childCount: GithubElementCategory.values.length,
               (context, index) => InkWell(
-                onTap: () {},
+                onTap: () {
+                  // TODO(KIM): Implement push search result
+                  context.pushNamed(
+                    '/search/result',
+                    pathParameters: {
+                      'category': GithubElementCategory.values[index].name,
+                    },
+                    queryParameters: {
+                      'q': searchText(ref),
+                    },
+                  );
+                },
                 child: SizedBox(
                   height: 56,
                   child: ListTile(

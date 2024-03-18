@@ -5,7 +5,15 @@ mixin class SearchEvent {
     ref.read(searchTextProvider.notifier).onChanged(text);
   }
 
-  void onSubmitted(WidgetRef ref, String query) {
+  void onSubmitted(
+    WidgetRef ref, {
+    required String query,
+    required TextEditingController controller,
+  }) {
+    if (query.isEmpty) {
+      return;
+    }
+    controller.clear();
     ref.invalidate(searchTextProvider);
     // TODO(KIM): Implement search
   }
