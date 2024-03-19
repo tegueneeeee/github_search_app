@@ -7,31 +7,52 @@ class _OptionListView extends ConsumerWidget with SearchState {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: GithubElementCategory.values.length,
-              (context, index) => InkWell(
-                onTap: () {
-                  // TODO(KIM): Implement push search result
-                  context.pushNamed(
-                    '/search/result',
-                    pathParameters: {
-                      'category': GithubElementCategory.values[index].name,
-                    },
-                    queryParameters: {
-                      'q': searchText(ref),
-                    },
-                  );
-                },
-                child: SizedBox(
-                  height: 56,
-                  child: ListTile(
-                    leading: const Icon(Icons.search),
-                    title: Text(
-                      '${searchText(ref)} '
-                      '${GithubElementCategory.values[index].name}',
+              (context, index) {
+                final category = GithubElementCategory.values.elementAt(index);
+                final icon = Assets.icons.values.firstWhere(
+                  (icon) => icon.path == category.path,
+                  orElse: () => Assets.icons.errorIndicator,
+                );
+                return InkWell(
+                  onTap: () {
+                    // TODO(KIM): Implement push search result
+                    context.pushNamed(
+                      '/search/result',
+                      pathParameters: {
+                        'category': category.name,
+                      },
+                      queryParameters: {
+                        'q': searchText(ref),
+                      },
+                    );
+                  },
+                  child: SizedBox(
+                    height: 56,
+                    child: ListTile(
+                      leading: icon.svg(
+                        colorFilter: const ColorFilter.mode(
+                          AppColors.troutGrey,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      title: Text(
+                        '${searchText(ref)} '
+                        '${category.name}',
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: AppColors.troutGrey,
+                                ),
+                      ),
+                      trailing: Assets.icons.arrowRight.svg(
+                        colorFilter: const ColorFilter.mode(
+                          AppColors.troutGrey,
+                          BlendMode.srcIn,
+                        ),
+                      ),
                     ),
-                    trailing: const Icon(Icons.arrow_right),
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ),
         ],

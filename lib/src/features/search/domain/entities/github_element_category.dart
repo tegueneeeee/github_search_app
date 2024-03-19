@@ -1,23 +1,23 @@
 enum GithubElementCategory {
   user(
-    'user',
+    'assets/icons/user.svg',
   ),
   repository(
-    'repository',
+    'assets/icons/repository.svg',
   ),
   issue(
-    'issue',
+    'assets/icons/issue.svg',
   ),
   pr(
-    'pr',
+    'assets/icons/pr_open.svg',
   ),
   total(
-    'total',
+    'assets/icons/long_arrow_right.svg',
   ),
   ;
 
   const GithubElementCategory(
-    this.tag,
+    this.path,
   );
-  final String tag;
+  final String path;
 }
