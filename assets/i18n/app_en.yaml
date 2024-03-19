@@ -1,0 +1,22 @@
+# locale: "en"
+title: "Search Github App"
+
+homePage:
+  favorite: "Favorite"
+
+searchPage:
+  appBar:
+    cancel: "Cancel"
+  optionListView:
+    user: "People with"
+    repository: "Repositories with"
+    issue: "Issues with"
+    pullRequest: "Pull Requests with"
+    total: "Jump to"
+  emptyIndicator:
+    title: "Find your stuff"
+    subTitle: "Search all of Github for People, Repositories, Organizations, Issues, and Pull Requests"
+
+widgets:
+  searchTextFieldHero:
+    label: "Search Github"

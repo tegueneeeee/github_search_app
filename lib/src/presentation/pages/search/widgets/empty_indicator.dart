@@ -29,21 +29,49 @@ class _EmptyIndicator extends HookConsumerWidget with SearchState {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Search GitHub',
-                              style: Theme.of(context).textTheme.headlineMedium,
+                              Translations.of(context)
+                                  .searchPage
+                                  .emptyIndicator
+                                  .title,
+                              style: Theme.of(context).textTheme.headlineLarge,
                             ),
                             const Gap(16),
                             Text(
-                              'You can search\n'
-                              'User, Repository, Organization, Issue\n'
-                              'Pull Request.',
+                              Translations.of(context)
+                                  .searchPage
+                                  .emptyIndicator
+                                  .subTitle,
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyMedium
+                                  .bodyLarge
                                   ?.copyWith(
                                     color: Colors.grey,
                                   ),
                               textAlign: TextAlign.center,
+                            ),
+                            OutlinedButton(
+                              onPressed: () {
+                                ref
+                                    .read(appLocaleNotifierProvider.notifier)
+                                    .changeLocale(AppLocale.en);
+                              },
+                              child: const Text('en'),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {
+                                ref
+                                    .read(appLocaleNotifierProvider.notifier)
+                                    .changeLocale(AppLocale.ja);
+                              },
+                              child: const Text('ja'),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {
+                                ref
+                                    .read(appLocaleNotifierProvider.notifier)
+                                    .changeLocale(AppLocale.ko);
+                              },
+                              child: const Text('ko'),
                             ),
                           ],
                         ),

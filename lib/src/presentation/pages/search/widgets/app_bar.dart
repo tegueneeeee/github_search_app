@@ -39,8 +39,8 @@ class _AppBar extends HookConsumerWidget
                 onPressed: () {
                   context.pop();
                 },
-                child: const Text(
-                  'Cancel',
+                child: Text(
+                  Translations.of(context).searchPage.appBar.cancel,
                 ),
               ),
             ],

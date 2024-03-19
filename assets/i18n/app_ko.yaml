@@ -1,0 +1,21 @@
+# locale: "ko"
+title: "Search Github App"
+
+homePage:
+  favorite: "즐겨찾기"
+
+searchPage:
+  appBar:
+    cancel: "취소"
+  optionListView:
+    user: "이(가) 이름에 포함된 사람"
+    repository: "이(가) 있는 리포지토리"
+    issue: "과(와) 관련된 Issue"
+    pullRequest: "이(가) 포함된 Pull Request"
+    total: "(으)로 이동"
+  emptyIndicator:
+    title: "무엇이든 찾아보세요"
+    subTitle: "모든 GitHub에서 사용자, 리포지토리, 조직, Issue 및 Pull Request를 검색합니다."
+widgets:
+  searchTextFieldHero:
+    label: "Github 검색"

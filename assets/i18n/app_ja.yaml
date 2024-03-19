@@ -1,0 +1,22 @@
+# locale: "ja"
+title: "Search Github App"
+
+homePage:
+  favorite: "お気に入り"
+
+searchPage:
+  appBar:
+    cancel: "キャンセル"
+  optionListView:
+    user: "を含む人"
+    repository: "を含むリポジトリ"
+    issue: "を含むIssue"
+    pullRequest: "を含むPull Request"
+    total: "へ移動"
+  emptyIndicator:
+    title: "検索してみましょう"
+    subTitle: "GitHub内の人、リポジトリ、Organization、Issue、フルリクエストなどを検索できます。"
+
+widgets:
+  searchTextFieldHero:
+    label: "Githubを検索"

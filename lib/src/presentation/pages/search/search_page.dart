@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
-import 'package:github_search_app/gen/assets.gen.dart';
 import 'package:github_search_app/src/config/app_colors.dart';
+import 'package:github_search_app/src/core/gen/assets.gen.dart';
+import 'package:github_search_app/src/core/gen/strings.g.dart';
+import 'package:github_search_app/src/core/providers/app_locale_notifier_provider.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element_category.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
 import 'package:github_search_app/src/presentation/pages/search/providers/search_text_provider.dart';

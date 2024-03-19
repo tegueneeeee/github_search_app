@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
+import 'package:github_search_app/src/core/gen/strings.g.dart';
 import 'package:github_search_app/src/core/router/routes.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
 import 'package:github_search_app/src/presentation/widgets/search_text_field_hero.dart';
@@ -33,9 +34,14 @@ class HomePage extends BasePage {
         slivers: [
           const SliverGap(16),
           SliverToBoxAdapter(
-            child: Text(
-              'Favorite User',
-              style: Theme.of(context).textTheme.headlineMedium,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  Translations.of(context).homePage.favorite,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
             ),
           ),
           const SliverGap(8),
