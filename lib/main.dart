@@ -7,7 +7,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.useDeviceLocale();
+  // TODO(KIM): Load from storage
+  // final String storedLocale = loadFromStorage();
+  // LocaleSettings.setLocaleRaw('ko');
   runApp(
     ProviderScope(
       observers: [

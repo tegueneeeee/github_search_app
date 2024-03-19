@@ -23,9 +23,12 @@ class AppStartupWidget extends ConsumerWidget {
     final appStartupState = ref.watch(appStartupProvider);
     return appStartupState.when(
       data: (_) => onLoaded(context),
-      error: (_, __) => const AppStartupLoadingWidget(),
-      loading: () => const Center(
-        child: CircularProgressIndicator(),
+      loading: () => const AppStartupLoadingWidget(),
+      error: (error, __) => AppStartupErrorWidget(
+        message: error.toString(),
+        onRetry: () {
+          ref.invalidate(appStartupProvider);
+        },
       ),
     );
   }
