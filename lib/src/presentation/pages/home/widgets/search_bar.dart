@@ -20,12 +20,8 @@ class _SearchBar extends HookWidget {
       },
       const [],
     );
-    return Hero(
-      tag: 'search',
-      child: CupertinoSearchTextField(
-        focusNode: focusNode,
-        placeholder: 'Search',
-      ),
+    return SearchTextFieldHero(
+      focusNode: focusNode,
     );
   }
 }

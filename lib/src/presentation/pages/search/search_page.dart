@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element_category.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
 import 'package:github_search_app/src/presentation/pages/search/providers/search_text_provider.dart';
+import 'package:github_search_app/src/presentation/widgets/search_text_field_hero.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

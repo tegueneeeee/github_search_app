@@ -23,21 +23,15 @@ class _AppBar extends HookConsumerWidget
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
-                child: Hero(
-                  tag: 'search',
-                  child: SizedBox(
-                    child: CupertinoSearchTextField(
-                      controller: controller,
-                      placeholder: 'Search GitHub',
-                      onChanged: (text) => onChanged(ref, text),
-                      onSubmitted: (query) => onSubmitted(
-                        ref,
-                        query: query,
-                        controller: controller,
-                      ),
-                      autofocus: true,
-                    ),
+                child: SearchTextFieldHero(
+                  controller: controller,
+                  onChanged: (text) => onChanged(ref, text),
+                  onSubmitted: (query) => onSubmitted(
+                    ref,
+                    query: query,
+                    controller: controller,
                   ),
+                  autofocus: true,
                 ),
               ),
               const Gap(4),
