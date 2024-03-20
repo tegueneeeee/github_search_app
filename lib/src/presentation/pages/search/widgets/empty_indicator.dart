@@ -52,18 +52,39 @@ class _EmptyIndicator extends HookConsumerWidget with SearchState {
                             OutlinedButton(
                               onPressed: () {
                                 LocaleSettings.setLocale(AppLocale.en);
+                                ref
+                                    .read(sharedPreferencesProvider)
+                                    .requireValue
+                                    .setString(
+                                      SharedPreferencesKey.locale.name,
+                                      'en',
+                                    );
                               },
                               child: const Text('en'),
                             ),
                             OutlinedButton(
                               onPressed: () {
                                 LocaleSettings.setLocale(AppLocale.ja);
+                                ref
+                                    .read(sharedPreferencesProvider)
+                                    .requireValue
+                                    .setString(
+                                      SharedPreferencesKey.locale.name,
+                                      'ja',
+                                    );
                               },
                               child: const Text('ja'),
                             ),
                             OutlinedButton(
                               onPressed: () {
                                 LocaleSettings.setLocale(AppLocale.ko);
+                                ref
+                                    .read(sharedPreferencesProvider)
+                                    .requireValue
+                                    .setString(
+                                      SharedPreferencesKey.locale.name,
+                                      'ko',
+                                    );
                               },
                               child: const Text('ko'),
                             ),

@@ -7,7 +7,7 @@ part of 'get_user_detail_info_use_case.dart';
 // **************************************************************************
 
 String _$getUserDetailInfoUseCaseHash() =>
-    r'4651da73dea7a89181a3b43da6c1288497038ebb';
+    r'5b7cdb5344b12adef963ee22ee0118e3aeed2523';
 
 /// See also [GetUserDetailInfoUseCase].
 @ProviderFor(GetUserDetailInfoUseCase)

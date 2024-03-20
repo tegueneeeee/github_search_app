@@ -8,5 +8,5 @@ enum SharedPreferencesKey {
 }
 
 @Riverpod(keepAlive: true)
-SharedPreferences sharedPreferences(SharedPreferencesRef ref) =>
-    throw UnimplementedError();
+Future<SharedPreferences> sharedPreferences(SharedPreferencesRef ref) =>
+    SharedPreferences.getInstance();
