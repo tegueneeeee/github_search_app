@@ -39,7 +39,9 @@ class HomePage extends BasePage {
               children: [
                 Text(
                   Translations.of(context).homePage.favorite,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
               ],
             ),
