@@ -12,7 +12,7 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
-    final appLocal = ref.watch(appLocaleProvider);
+    final appLocal = ref.watch(localeProvider);
     return MaterialApp.router(
       locale: appLocal.flutterLocale,
       supportedLocales: AppLocaleUtils.supportedLocales,

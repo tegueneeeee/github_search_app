@@ -51,7 +51,9 @@ class _EmptyIndicator extends HookConsumerWidget with SearchState {
                             ),
                             OutlinedButton(
                               onPressed: () {
-                                LocaleSettings.setLocale(AppLocale.en);
+                                ref.read(localeProvider.notifier).changeLocale(
+                                      AppLocale.en,
+                                    );
                                 ref
                                     .read(sharedPreferencesProvider)
                                     .requireValue
@@ -64,7 +66,9 @@ class _EmptyIndicator extends HookConsumerWidget with SearchState {
                             ),
                             OutlinedButton(
                               onPressed: () {
-                                LocaleSettings.setLocale(AppLocale.ja);
+                                ref.read(localeProvider.notifier).changeLocale(
+                                      AppLocale.ja,
+                                    );
                                 ref
                                     .read(sharedPreferencesProvider)
                                     .requireValue
@@ -77,7 +81,9 @@ class _EmptyIndicator extends HookConsumerWidget with SearchState {
                             ),
                             OutlinedButton(
                               onPressed: () {
-                                LocaleSettings.setLocale(AppLocale.ko);
+                                ref.read(localeProvider.notifier).changeLocale(
+                                      AppLocale.ko,
+                                    );
                                 ref
                                     .read(sharedPreferencesProvider)
                                     .requireValue

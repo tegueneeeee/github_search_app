@@ -4,4 +4,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'app_locale_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-AppLocale appLocale(AppLocaleRef ref) => LocaleSettings.currentLocale;
+class Locale extends _$Locale {
+  @override
+  AppLocale build() => LocaleSettings.currentLocale;
+
+  Future<void> changeLocale(AppLocale newLocale) async {
+    state = newLocale;
+    LocaleSettings.setLocale(newLocale);
+  }
+}

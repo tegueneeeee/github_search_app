@@ -34,7 +34,7 @@ mixin class SearchEvent {
     required String searchText,
     required GithubElementCategory category,
   }) {
-    final appLocale = ref.watch(appLocaleProvider);
+    final appLocale = ref.watch(localeProvider);
     final translations = appLocale.translations;
     final currentLocale = appLocale.flutterLocale;
     final description = switch (category) {
