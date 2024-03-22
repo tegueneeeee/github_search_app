@@ -6,6 +6,7 @@ import 'package:github_search_app/src/core/gen/assets.gen.dart';
 import 'package:github_search_app/src/core/gen/strings.g.dart';
 import 'package:github_search_app/src/core/providers/app_locale_provider.dart';
 import 'package:github_search_app/src/core/providers/shared_preferences_provider.dart';
+import 'package:github_search_app/src/core/router/routes.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_category.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
 import 'package:github_search_app/src/presentation/pages/search/providers/search_text_provider.dart';
@@ -33,7 +34,4 @@ class SearchPage extends BasePage with SearchState, SearchEvent {
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context, WidgetRef ref) =>
       _AppBar();
-
-  @override
-  EdgeInsetsGeometry get pagePadding => EdgeInsets.zero;
 }

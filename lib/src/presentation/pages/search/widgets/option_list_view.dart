@@ -9,14 +9,11 @@ class _OptionListView extends ConsumerWidget with SearchState, SearchEvent {
               childCount: GithubElementCategory.values.length,
               (context, index) => InkWell(
                 onTap: () {
-                  // TODO(KIM): Implement push search result
                   context.pushNamed(
-                    '/search/result',
-                    pathParameters: {
-                      'category': categoryElementAt(index).name,
-                    },
+                    SearchedRouteData.name,
                     queryParameters: {
                       'q': searchText(ref),
+                      'category': categoryElementAt(index).name,
                     },
                   );
                 },

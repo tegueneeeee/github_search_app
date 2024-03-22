@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/arrow_left.svg
+  SvgGenImage get arrowLeft => const SvgGenImage('assets/icons/arrow_left.svg');
+
   /// File path: assets/icons/arrow_right.svg
   SvgGenImage get arrowRight =>
       const SvgGenImage('assets/icons/arrow_right.svg');
@@ -41,6 +44,7 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        arrowLeft,
         arrowRight,
         errorIndicator,
         issue,
