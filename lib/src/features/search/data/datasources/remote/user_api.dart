@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:github_search_app/src/core/network/github_dio.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user_detail_response.dart';
 import 'package:github_search_app/src/features/search/data/datasources/remote/user_search_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -22,5 +23,10 @@ abstract interface class UserApi {
     @Query('q') String query,
     @Query('per_page') int perPage,
     @Query('page') int page,
+  );
+
+  @GET('/users/{username}')
+  Future<UserDetailResponse> getUserDetail(
+    @Path('username') String username,
   );
 }

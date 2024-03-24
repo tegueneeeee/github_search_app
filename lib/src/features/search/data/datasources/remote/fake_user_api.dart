@@ -1,7 +1,9 @@
 import 'package:github_search_app/src/core/utils/delay.dart';
 import 'package:github_search_app/src/core/utils/in_memory_store.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/test_user_detail_json.dart';
 import 'package:github_search_app/src/features/search/data/datasources/remote/test_user_search_json.dart';
 import 'package:github_search_app/src/features/search/data/datasources/remote/user_api.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user_detail_response.dart';
 import 'package:github_search_app/src/features/search/data/datasources/remote/user_search_response.dart';
 
 class FakeUserApi implements UserApi {
@@ -13,6 +15,10 @@ class FakeUserApi implements UserApi {
     UserSearchResponse.fromJson(kTextUserSearchJson),
   );
 
+  final _userDetailResponse = InMemoryStore<UserDetailResponse>(
+    UserDetailResponse.fromJson(kTextUserDetailJson),
+  );
+
   final bool addDelay;
   @override
   Future<UserSearchResponse> getSearchUsers(
@@ -22,5 +28,13 @@ class FakeUserApi implements UserApi {
   ) async {
     await delay(addDelay: addDelay);
     return _userSearchResponse.value;
+  }
+
+  @override
+  Future<UserDetailResponse> getUserDetail(
+    String username,
+  ) async {
+    await delay(addDelay: addDelay);
+    return _userDetailResponse.value;
   }
 }
