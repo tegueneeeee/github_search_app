@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user_repository_impl.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 UserRepository userRepository(UserRepositoryRef ref) {
   return UserRepositoryImpl(
     ref.watch(userApiProvider),
@@ -18,7 +18,7 @@ class UserRepositoryImpl implements UserRepository {
 
   final UserApi _userApi;
   @override
-  Future<List<UserBasicInfoEntity>> getSearchUserList({
+  Future<List<UserBasicInfoEntity>> getSearchUsers({
     required String query,
     required int perPage,
     required int page,
@@ -35,10 +35,11 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<UserDetailInfoEntity> getUserDetailInfo({
+  Future<UserDetailInfoEntity> getUserDetail({
     required String userName,
   }) {
-    // TODO: implement getUserDetailInfo
-    throw UnimplementedError();
+    return _userApi
+        .getUserDetail(userName)
+        .then(UserDetailInfoEntity.fromResponse);
   }
 }

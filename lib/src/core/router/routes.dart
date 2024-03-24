@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_category.dart';
+import 'package:github_search_app/src/presentation/pages/detail/detail_page.dart';
 import 'package:github_search_app/src/presentation/pages/home/home_page.dart';
 import 'package:github_search_app/src/presentation/pages/search/search_page.dart';
 import 'package:github_search_app/src/presentation/pages/searched/searched_page.dart';
@@ -18,6 +19,12 @@ part 'routes.g.dart';
         TypedGoRoute<SearchedRouteData>(
           path: SearchedRouteData.path,
           name: SearchedRouteData.name,
+          routes: [
+            TypedGoRoute<DetailRouteData>(
+              path: DetailRouteData.path,
+              name: DetailRouteData.name,
+            ),
+          ],
         ),
       ],
     ),
@@ -68,5 +75,24 @@ class SearchedRouteData extends GoRouteData {
                     element.name == state.uri.queryParameters['category'],
                 orElse: () => GithubElementCategory.total,
               ),
+      );
+}
+
+class DetailRouteData extends GoRouteData {
+  const DetailRouteData();
+
+  static const String path = 'detail';
+  static const String name = 'detail';
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => DetailPage(
+        category: state.uri.queryParameters['category'] == null
+            ? GithubElementCategory.total
+            : GithubElementCategory.values.firstWhere(
+                (element) =>
+                    element.name == state.uri.queryParameters['category'],
+                orElse: () => GithubElementCategory.total,
+              ),
+        query: state.uri.queryParameters['query'] ?? '',
       );
 }

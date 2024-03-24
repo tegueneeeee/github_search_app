@@ -6,8 +6,11 @@ mixin SearchedState {
     required String query,
     required int perPage,
     required int page,
-  }) =>
-      ref
-          .read(userRepositoryProvider)
-          .getSearchUserList(query: query, perPage: perPage, page: page);
+  }) {
+    return ref
+        .read(
+          userRepositoryProvider,
+        )
+        .getSearchUsers(query: query, perPage: perPage, page: page);
+  }
 }

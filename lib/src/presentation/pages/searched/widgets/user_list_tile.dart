@@ -11,6 +11,13 @@ class UserListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () => context.goNamed(
+        DetailRouteData.name,
+        queryParameters: {
+          'category': GithubElementCategory.user.name,
+          'query': user.userName,
+        },
+      ),
       leading: CircleAvatar(
         backgroundColor: Theme.of(context).colorScheme.shadow,
         child: Padding(

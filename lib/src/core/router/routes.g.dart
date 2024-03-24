@@ -24,6 +24,13 @@ RouteBase get $homeRouteData => GoRouteData.$route(
               path: 'searched',
               name: 'searched',
               factory: $SearchedRouteDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'detail',
+                  name: 'detail',
+                  factory: $DetailRouteDataExtension._fromState,
+                ),
+              ],
             ),
           ],
         ),
@@ -71,6 +78,24 @@ extension $SearchedRouteDataExtension on SearchedRouteData {
 
   String get location => GoRouteData.$location(
         '/search/searched',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $DetailRouteDataExtension on DetailRouteData {
+  static DetailRouteData _fromState(GoRouterState state) =>
+      const DetailRouteData();
+
+  String get location => GoRouteData.$location(
+        '/search/searched/detail',
       );
 
   void go(BuildContext context) => context.go(location);
