@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:gap/gap.dart';
 import 'package:github_search_app/src/core/utils/string_hardcoded.dart';
 import 'package:github_search_app/src/features/search/data/repositories/user_repository_impl.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_category.dart';

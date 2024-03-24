@@ -17,6 +17,7 @@
     },
   },
   "cSpell.ignorePaths": [
+    "test*.dart",
     "dart_defines",
     "firebase_options*.dart",
     "google-services.json",
