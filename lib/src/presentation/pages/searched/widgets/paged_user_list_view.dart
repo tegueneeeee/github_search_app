@@ -23,7 +23,7 @@ class _PagedUserListView extends HookConsumerWidget
               ref,
               query: query,
               perPage: SearchedPage.perPage,
-              page: SearchedPage.firstPage,
+              page: pageKey,
             );
             fetchPage(
               pagingController: pagingController,
@@ -43,8 +43,8 @@ class _PagedUserListView extends HookConsumerWidget
     );
     return ResponsivePagedListView<UserBasicInfoEntity>(
       pagingController: pagingController,
-      itemBuilder: (context, user, index) => ListTile(
-        title: Text(user.userName),
+      itemBuilder: (context, user, index) => UserListTile(
+        user: user,
       ),
     );
   }

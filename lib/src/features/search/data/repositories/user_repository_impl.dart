@@ -22,17 +22,16 @@ class UserRepositoryImpl implements UserRepository {
     required String query,
     required int perPage,
     required int page,
-  }) async {
-    final response = await _userApi.getSearchUsers(
-      query,
-      perPage,
-      page,
-    );
-    return response.items
-        .map(
-          UserBasicInfoEntity.fromResponse,
+  }) {
+    return _userApi
+        .getSearchUsers(
+          query,
+          perPage,
+          page,
         )
-        .toList();
+        .then(
+          (value) => value.items.map(UserBasicInfoEntity.fromResponse).toList(),
+        );
   }
 
   @override

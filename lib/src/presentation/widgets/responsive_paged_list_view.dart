@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:github_search_app/src/core/gen/assets.gen.dart';
+import 'package:github_search_app/src/core/router/routes.dart';
+import 'package:github_search_app/src/core/utils/string_hardcoded.dart';
+import 'package:go_router/go_router.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class ResponsivePagedListView<T> extends StatelessWidget {
@@ -30,14 +34,54 @@ class ResponsivePagedListView<T> extends StatelessWidget {
       builderDelegate: PagedChildBuilderDelegate<T>(
         animateTransitions: true,
         itemBuilder: itemBuilder,
-        newPageProgressIndicatorBuilder: (context) => const Center(
-          child: CircularProgressIndicator(),
-        ),
         firstPageProgressIndicatorBuilder: (context) =>
             firstLoadingView ??
             const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator.adaptive(),
             ),
+        firstPageErrorIndicatorBuilder: (context) => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Gap(16),
+            TextButton(
+              onPressed: () => context.goNamed(HomeRouteData.name),
+              child: Text(
+                'go to home'.hardcoded,
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+        newPageProgressIndicatorBuilder: (context) => const Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
+        newPageErrorIndicatorBuilder: (context) => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Gap(16),
+            TextButton(
+              onPressed: () => context.goNamed(HomeRouteData.name),
+              child: Text(
+                'retry'.hardcoded,
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+        noItemsFoundIndicatorBuilder: (context) => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Assets.icons.errorIndicator.svg(),
+            const Gap(16),
+            Text(
+              'No items found'.hardcoded,
+              style: Theme.of(context).textTheme.titleMedium,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

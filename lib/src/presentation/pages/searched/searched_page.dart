@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gap/gap.dart';
+import 'package:github_search_app/src/core/utils/string_hardcoded.dart';
 import 'package:github_search_app/src/features/search/data/repositories/user_repository_impl.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_category.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_entity.dart';
@@ -13,6 +15,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 part 'searched_event.dart';
 part 'searched_state.dart';
 part 'widgets/paged_user_list_view.dart';
+part 'widgets/user_list_tile.dart';
 
 class SearchedPage extends BasePage {
   const SearchedPage({
@@ -44,11 +47,11 @@ class SearchedPage extends BasePage {
   PreferredSizeWidget? buildAppBar(BuildContext context, WidgetRef ref) =>
       CommonAppBar(
         title: switch (category) {
-          GithubElementCategory.user => 'Users',
-          GithubElementCategory.repository => 'Repositories',
-          GithubElementCategory.issue => 'Issues',
-          GithubElementCategory.pr => 'Pull Requests',
-          GithubElementCategory.total => 'Total',
+          GithubElementCategory.user => 'Users'.hardcoded,
+          GithubElementCategory.repository => 'Repositories'.hardcoded,
+          GithubElementCategory.issue => 'Issues'.hardcoded,
+          GithubElementCategory.pr => 'Pull Requests'.hardcoded,
+          GithubElementCategory.total => 'Total'.hardcoded,
         },
       );
 }

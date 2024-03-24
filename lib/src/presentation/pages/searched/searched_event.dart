@@ -14,7 +14,7 @@ mixin SearchedEvent {
       if (isLastPage) {
         pagingController.appendLastPage(newItems);
       } else {
-        final nextPageKey = pageKey + newItemLength;
+        final nextPageKey = pageKey + 1;
         pagingController.appendPage(newItems, nextPageKey);
       }
     } on Exception catch (error) {
