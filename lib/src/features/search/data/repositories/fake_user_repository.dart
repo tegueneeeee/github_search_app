@@ -1,5 +1,6 @@
 import 'package:github_search_app/src/core/utils/delay.dart';
 import 'package:github_search_app/src/core/utils/in_memory_store.dart';
+import 'package:github_search_app/src/features/search/data/repositories/test_user_basic_info_list.dart';
 import 'package:github_search_app/src/features/search/data/repositories/test_user_detail_info.dart';
 import 'package:github_search_app/src/features/search/domain/entities/user/user_basic_info_entity.dart';
 import 'package:github_search_app/src/features/search/domain/entities/user/user_detail_info_entity.dart';
@@ -11,6 +12,8 @@ class FakeUserRepository implements UserRepository {
   });
 
   final bool addDelay;
+  final _searchUserList =
+      InMemoryStore<List<UserBasicInfoEntity>>(kTestUserBasicInfoList);
   final _userDetailInfo =
       InMemoryStore<UserDetailInfoEntity>(kTestUserDetailInfo);
 
@@ -20,8 +23,8 @@ class FakeUserRepository implements UserRepository {
     required int perPage,
     required int page,
   }) async {
-    // TODO: implement getUserDetailInfo
-    throw UnimplementedError();
+    await delay(addDelay: addDelay);
+    return Future.value(_searchUserList.value);
   }
 
   @override
