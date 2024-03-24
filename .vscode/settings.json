@@ -1,3 +1,35 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.19.3"
+  "dart.flutterSdkPath": ".fvm/versions/3.19.3",
+  "cSpell.customDictionaries": {
+    "app-words": {
+      "name": "app-words",
+      "path": "${workspaceRoot}/.cspell/app-words.txt",
+      "description": "Words specific to this application",
+      "addWords": true,
+      "scope": "workspace"
+    },
+    "flutter-words": {
+      "name": "flutter-words",
+      "path": "${workspaceRoot}/.cspell/flutter-words.txt",
+      "description": "Flutter App Development Words",
+      "addWords": true,
+      "scope": "workspace"
+    },
+  },
+  "cSpell.ignorePaths": [
+    "dart_defines",
+    "firebase_options*.dart",
+    "google-services.json",
+    "node_modules",
+    "package-lock.json",
+    "vscode-extension",
+    "*.gen.dart",
+    "*.lock",
+    "*.xcconfig",
+    "**/fvm",
+    "**/.pub-cache",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders"
+  ]
 }
