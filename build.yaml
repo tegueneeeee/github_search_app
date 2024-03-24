@@ -1,0 +1,13 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          - lib/**/remote/**.dart
+          - lib/**/domain/entities/**.dart
+      json_serializable:
+        options:
+          field_rename: snake
+        generate_for:
+          - lib/**/remote/**.dart
+          - lib/**/domain/entities/**.dart
