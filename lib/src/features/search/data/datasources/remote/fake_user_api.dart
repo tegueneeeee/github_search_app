@@ -1,6 +1,6 @@
 import 'package:github_search_app/src/core/utils/delay.dart';
 import 'package:github_search_app/src/core/utils/in_memory_store.dart';
-import 'package:github_search_app/src/features/search/data/datasources/remote/test_user_search_response.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/test_user_search_json.dart';
 import 'package:github_search_app/src/features/search/data/datasources/remote/user_api.dart';
 import 'package:github_search_app/src/features/search/data/datasources/remote/user_search_response.dart';
 
@@ -10,7 +10,7 @@ class FakeUserApi implements UserApi {
   });
 
   final _userSearchResponse = InMemoryStore<UserSearchResponse>(
-    UserSearchResponse.fromJson(kTextUserSearchResponse),
+    UserSearchResponse.fromJson(kTextUserSearchJson),
   );
 
   final bool addDelay;

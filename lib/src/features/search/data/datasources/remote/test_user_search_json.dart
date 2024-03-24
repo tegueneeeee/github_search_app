@@ -1,4 +1,4 @@
-const kTextUserSearchResponse = {
+const kTextUserSearchJson = {
   'total_count': 41844,
   'incomplete_results': false,
   'items': [
