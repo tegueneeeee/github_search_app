@@ -43,7 +43,7 @@ class _PagedUserListView extends HookConsumerWidget
     );
     return ResponsivePagedListView<UserBasicInfoEntity>(
       pagingController: pagingController,
-      itemBuilder: (context, user, index) => UserListTile(
+      itemBuilder: (context, user, index) => _UserListTile(
         user: user,
       ),
     );

@@ -1,8 +1,7 @@
 part of '../searched_page.dart';
 
-class UserListTile extends StatelessWidget {
-  const UserListTile({
-    super.key,
+class _UserListTile extends StatelessWidget {
+  const _UserListTile({
     required this.user,
   });
 

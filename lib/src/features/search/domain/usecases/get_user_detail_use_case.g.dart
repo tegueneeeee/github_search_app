@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_detail_provider.dart';
+part of 'get_user_detail_use_case.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userDetailHash() => r'64806b39d08d3ecb1b100e8110418b5482051b7f';
+String _$getUserDetailUseCaseHash() =>
+    r'f8bf19a0e85f97b461f1b68231c1d384c9567eab';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,27 +30,37 @@ class _SystemHash {
   }
 }
 
-/// See also [userDetail].
-@ProviderFor(userDetail)
-const userDetailProvider = UserDetailFamily();
+abstract class _$GetUserDetailUseCase
+    extends BuildlessAutoDisposeAsyncNotifier<UserDetailInfoEntity> {
+  late final String userName;
 
-/// See also [userDetail].
-class UserDetailFamily extends Family<AsyncValue<UserDetailInfoEntity>> {
-  /// See also [userDetail].
-  const UserDetailFamily();
+  FutureOr<UserDetailInfoEntity> build({
+    required String userName,
+  });
+}
 
-  /// See also [userDetail].
-  UserDetailProvider call({
+/// See also [GetUserDetailUseCase].
+@ProviderFor(GetUserDetailUseCase)
+const getUserDetailUseCaseProvider = GetUserDetailUseCaseFamily();
+
+/// See also [GetUserDetailUseCase].
+class GetUserDetailUseCaseFamily
+    extends Family<AsyncValue<UserDetailInfoEntity>> {
+  /// See also [GetUserDetailUseCase].
+  const GetUserDetailUseCaseFamily();
+
+  /// See also [GetUserDetailUseCase].
+  GetUserDetailUseCaseProvider call({
     required String userName,
   }) {
-    return UserDetailProvider(
+    return GetUserDetailUseCaseProvider(
       userName: userName,
     );
   }
 
   @override
-  UserDetailProvider getProviderOverride(
-    covariant UserDetailProvider provider,
+  GetUserDetailUseCaseProvider getProviderOverride(
+    covariant GetUserDetailUseCaseProvider provider,
   ) {
     return call(
       userName: provider.userName,
@@ -68,33 +79,30 @@ class UserDetailFamily extends Family<AsyncValue<UserDetailInfoEntity>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'userDetailProvider';
+  String? get name => r'getUserDetailUseCaseProvider';
 }
 
-/// See also [userDetail].
-class UserDetailProvider
-    extends AutoDisposeFutureProvider<UserDetailInfoEntity> {
-  /// See also [userDetail].
-  UserDetailProvider({
+/// See also [GetUserDetailUseCase].
+class GetUserDetailUseCaseProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    GetUserDetailUseCase, UserDetailInfoEntity> {
+  /// See also [GetUserDetailUseCase].
+  GetUserDetailUseCaseProvider({
     required String userName,
   }) : this._internal(
-          (ref) => userDetail(
-            ref as UserDetailRef,
-            userName: userName,
-          ),
-          from: userDetailProvider,
-          name: r'userDetailProvider',
+          () => GetUserDetailUseCase()..userName = userName,
+          from: getUserDetailUseCaseProvider,
+          name: r'getUserDetailUseCaseProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$userDetailHash,
-          dependencies: UserDetailFamily._dependencies,
+                  : _$getUserDetailUseCaseHash,
+          dependencies: GetUserDetailUseCaseFamily._dependencies,
           allTransitiveDependencies:
-              UserDetailFamily._allTransitiveDependencies,
+              GetUserDetailUseCaseFamily._allTransitiveDependencies,
           userName: userName,
         );
 
-  UserDetailProvider._internal(
+  GetUserDetailUseCaseProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -107,13 +115,20 @@ class UserDetailProvider
   final String userName;
 
   @override
-  Override overrideWith(
-    FutureOr<UserDetailInfoEntity> Function(UserDetailRef provider) create,
+  FutureOr<UserDetailInfoEntity> runNotifierBuild(
+    covariant GetUserDetailUseCase notifier,
   ) {
+    return notifier.build(
+      userName: userName,
+    );
+  }
+
+  @override
+  Override overrideWith(GetUserDetailUseCase Function() create) {
     return ProviderOverride(
       origin: this,
-      override: UserDetailProvider._internal(
-        (ref) => create(ref as UserDetailRef),
+      override: GetUserDetailUseCaseProvider._internal(
+        () => create()..userName = userName,
         from: from,
         name: null,
         dependencies: null,
@@ -125,13 +140,14 @@ class UserDetailProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<UserDetailInfoEntity> createElement() {
-    return _UserDetailProviderElement(this);
+  AutoDisposeAsyncNotifierProviderElement<GetUserDetailUseCase,
+      UserDetailInfoEntity> createElement() {
+    return _GetUserDetailUseCaseProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is UserDetailProvider && other.userName == userName;
+    return other is GetUserDetailUseCaseProvider && other.userName == userName;
   }
 
   @override
@@ -143,18 +159,19 @@ class UserDetailProvider
   }
 }
 
-mixin UserDetailRef on AutoDisposeFutureProviderRef<UserDetailInfoEntity> {
+mixin GetUserDetailUseCaseRef
+    on AutoDisposeAsyncNotifierProviderRef<UserDetailInfoEntity> {
   /// The parameter `userName` of this provider.
   String get userName;
 }
 
-class _UserDetailProviderElement
-    extends AutoDisposeFutureProviderElement<UserDetailInfoEntity>
-    with UserDetailRef {
-  _UserDetailProviderElement(super.provider);
+class _GetUserDetailUseCaseProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<GetUserDetailUseCase,
+        UserDetailInfoEntity> with GetUserDetailUseCaseRef {
+  _GetUserDetailUseCaseProviderElement(super.provider);
 
   @override
-  String get userName => (origin as UserDetailProvider).userName;
+  String get userName => (origin as GetUserDetailUseCaseProvider).userName;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

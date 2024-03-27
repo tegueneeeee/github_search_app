@@ -7,10 +7,12 @@ mixin SearchedState {
     required int perPage,
     required int page,
   }) {
-    return ref
-        .read(
-          userRepositoryProvider,
-        )
-        .getSearchUsers(query: query, perPage: perPage, page: page);
+    return ref.watch(
+      getSearchUsersUseCaseProvider(
+        query: query,
+        perPage: perPage,
+        page: page,
+      ).future,
+    );
   }
 }
