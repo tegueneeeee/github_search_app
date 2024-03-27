@@ -8,6 +8,7 @@ import 'package:github_search_app/src/features/search/domain/entities/github_ele
 import 'package:github_search_app/src/features/search/domain/entities/user/user_basic_info_entity.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
 import 'package:github_search_app/src/presentation/widgets/common_app_bar.dart';
+import 'package:github_search_app/src/presentation/widgets/profile_image.dart';
 import 'package:github_search_app/src/presentation/widgets/responsive_paged_list_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

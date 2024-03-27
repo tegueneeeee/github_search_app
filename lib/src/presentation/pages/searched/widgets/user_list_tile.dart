@@ -18,14 +18,9 @@ class UserListTile extends StatelessWidget {
           'query': user.userName,
         },
       ),
-      leading: CircleAvatar(
-        backgroundColor: Theme.of(context).colorScheme.shadow,
-        child: Padding(
-          padding: const EdgeInsets.all(0.5),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(user.avatarUrl),
-          ),
-        ),
+      leading: ProfileImage(
+        imageUrl: user.avatarUrl,
+        size: 32,
       ),
       title: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
