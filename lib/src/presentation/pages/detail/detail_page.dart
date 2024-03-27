@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:github_search_app/src/config/app_colors.dart';
+import 'package:github_search_app/src/core/gen/assets.gen.dart';
 import 'package:github_search_app/src/core/utils/string_hardcoded.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_category.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
 import 'package:github_search_app/src/presentation/pages/detail/detail_state.dart';
 import 'package:github_search_app/src/presentation/widgets/common_app_bar.dart';
 import 'package:github_search_app/src/presentation/widgets/error_indicator.dart';
+import 'package:github_search_app/src/presentation/widgets/profile_image.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part 'widgets/user_detail_async_value_widget.dart';
