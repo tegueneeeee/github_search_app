@@ -28,6 +28,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/issue.svg
   SvgGenImage get issue => const SvgGenImage('assets/icons/issue.svg');
 
+  /// File path: assets/icons/location.svg
+  SvgGenImage get location => const SvgGenImage('assets/icons/location.svg');
+
   /// File path: assets/icons/long_arrow_right.svg
   SvgGenImage get longArrowRight =>
       const SvgGenImage('assets/icons/long_arrow_right.svg');
@@ -48,6 +51,7 @@ class $AssetsIconsGen {
         arrowRight,
         errorIndicator,
         issue,
+        location,
         longArrowRight,
         prOpen,
         repository,
