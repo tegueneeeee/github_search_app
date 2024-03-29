@@ -10,7 +10,7 @@ part 'user_api.g.dart';
 @Riverpod(keepAlive: true)
 UserApi userApi(UserApiRef ref) {
   return UserApi(
-    GithubDio.getInstance(),
+    ref.watch(githubDioProvider),
   );
 }
 

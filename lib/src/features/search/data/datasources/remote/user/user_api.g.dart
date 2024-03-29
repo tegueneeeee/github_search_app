@@ -115,7 +115,7 @@ class _UserApi implements UserApi {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userApiHash() => r'aee7e366c996dc3b16e3bd9e7d31ef567230b15d';
+String _$userApiHash() => r'a31df8c11c9d58a63e6ce7db5b9eee4ea9eb4ff0';
 
 /// See also [userApi].
 @ProviderFor(userApi)
