@@ -15,4 +15,19 @@ mixin SearchedState {
       ).future,
     );
   }
+
+  Future<List<RepositoryBasicInfoEntity>> searchRepositories(
+    WidgetRef ref, {
+    required String query,
+    required int perPage,
+    required int page,
+  }) {
+    return ref.watch(
+      getSearchRepositoriesUseCaseProvider(
+        query: query,
+        perPage: perPage,
+        page: page,
+      ).future,
+    );
+  }
 }

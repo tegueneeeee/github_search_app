@@ -1,6 +1,7 @@
 part of '../searched_page.dart';
 
-class _PagedRepositoryListView extends HookWidget with SearchedEvent {
+class _PagedRepositoryListView extends HookConsumerWidget
+    with SearchedState, SearchedEvent {
   const _PagedRepositoryListView({
     required this.query,
   });
@@ -8,9 +9,9 @@ class _PagedRepositoryListView extends HookWidget with SearchedEvent {
   final String query;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final pagingController = useMemoized(
-      () => PagingController<int, UserBasicInfoEntity>(
+      () => PagingController<int, RepositoryBasicInfoEntity>(
         firstPageKey: SearchedPage.firstPage,
       ),
     );
@@ -18,28 +19,27 @@ class _PagedRepositoryListView extends HookWidget with SearchedEvent {
       () {
         pagingController.addPageRequestListener(
           (pageKey) {
-            // final users = searchedUsers(
-            //   ref,
-            //   query: query,
-            //   perPage: SearchedPage.perPage,
-            //   page: pageKey,
-            // );
-            // fetchPage(
-            //   pagingController: pagingController,
-            //   // asyncItems: users,
-            //   perPage: SearchedPage.perPage,
-            //   pageKey: pageKey,
-            // );
+            final repositories = searchRepositories(
+              ref,
+              query: query,
+              perPage: SearchedPage.perPage,
+              page: pageKey,
+            );
+            fetchPage(
+              pagingController: pagingController,
+              asyncItems: repositories,
+              perPage: SearchedPage.perPage,
+              pageKey: pageKey,
+            );
           },
         );
-        return () {
-          pagingController
-            ..removePageRequestListener((pageKey) {})
-            ..dispose();
-        };
+        return;
       },
       const [],
     );
-    return const Placeholder();
+    return ResponsivePagedListView<RepositoryBasicInfoEntity>(
+      pagingController: pagingController,
+      itemBuilder: (context, repository, index) => const ListTile(),
+    );
   }
 }
