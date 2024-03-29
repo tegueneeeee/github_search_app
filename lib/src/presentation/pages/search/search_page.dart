@@ -9,7 +9,7 @@ import 'package:github_search_app/src/core/providers/shared_preferences_provider
 import 'package:github_search_app/src/core/router/routes.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_category.dart';
 import 'package:github_search_app/src/presentation/base/base_page.dart';
-import 'package:github_search_app/src/presentation/pages/search/providers/search_text_provider.dart';
+import 'package:github_search_app/src/presentation/pages/search/states/search_text_state.dart';
 import 'package:github_search_app/src/presentation/widgets/search_text_field_hero.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

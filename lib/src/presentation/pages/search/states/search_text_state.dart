@@ -1,9 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'search_text_provider.g.dart';
+part 'search_text_state.g.dart';
 
 @riverpod
-class SearchText extends _$SearchText {
+class SearchTextState extends _$SearchTextState {
   @override
   String build() => '';
 

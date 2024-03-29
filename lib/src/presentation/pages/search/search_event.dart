@@ -2,7 +2,7 @@ part of 'search_page.dart';
 
 mixin class SearchEvent {
   void onChanged(WidgetRef ref, String text) {
-    ref.read(searchTextProvider.notifier).onChanged(text);
+    ref.read(searchTextStateProvider.notifier).onChanged(text);
   }
 
   void onSubmitted(
@@ -14,7 +14,7 @@ mixin class SearchEvent {
       return;
     }
     controller.clear();
-    ref.invalidate(searchTextProvider);
+    ref.invalidate(searchTextStateProvider);
     // TODO(KIM): Implement search
   }
 
