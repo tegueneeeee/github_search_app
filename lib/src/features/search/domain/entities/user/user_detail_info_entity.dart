@@ -1,4 +1,4 @@
-import 'package:github_search_app/src/features/search/data/datasources/remote/user_detail_response.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user/user_detail_response.dart';
 import 'package:github_search_app/src/features/search/domain/entities/user/user_basic_info_entity.dart';
 
 class UserDetailInfoEntity extends UserBasicInfoEntity {

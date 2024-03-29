@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:github_search_app/src/features/search/data/datasources/remote/user_item_response.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user/user_item_response.dart';
 
 part 'user_search_response.freezed.dart';
 part 'user_search_response.g.dart';

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:github_search_app/src/core/network/github_dio.dart';
-import 'package:github_search_app/src/features/search/data/datasources/remote/user_detail_response.dart';
-import 'package:github_search_app/src/features/search/data/datasources/remote/user_search_response.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user/user_detail_response.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user/user_search_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

@@ -1,4 +1,4 @@
-import 'package:github_search_app/src/features/search/data/datasources/remote/user_item_response.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user/user_item_response.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_category.dart';
 import 'package:github_search_app/src/features/search/domain/entities/github_element/github_element_entity.dart';
 

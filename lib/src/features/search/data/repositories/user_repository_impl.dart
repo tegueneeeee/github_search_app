@@ -1,4 +1,4 @@
-import 'package:github_search_app/src/features/search/data/datasources/remote/user_api.dart';
+import 'package:github_search_app/src/features/search/data/datasources/remote/user/user_api.dart';
 import 'package:github_search_app/src/features/search/domain/entities/user/user_basic_info_entity.dart';
 import 'package:github_search_app/src/features/search/domain/entities/user/user_detail_info_entity.dart';
 import 'package:github_search_app/src/features/search/domain/repositories/user_repository.dart';
