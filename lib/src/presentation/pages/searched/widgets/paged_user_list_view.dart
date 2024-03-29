@@ -33,11 +33,7 @@ class _PagedUserListView extends HookConsumerWidget
             );
           },
         );
-        return () {
-          pagingController
-            ..removePageRequestListener((pageKey) {})
-            ..dispose();
-        };
+        return;
       },
       const [],
     );
