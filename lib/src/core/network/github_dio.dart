@@ -1,5 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'github_dio.g.dart';
+
+@Riverpod(keepAlive: true)
+GithubDio githubDio(GithubDioRef ref) {
+  return GithubDio._();
+}
 
 class GithubDio with DioMixin implements Dio {
   GithubDio._() {
@@ -33,6 +41,4 @@ class GithubDio with DioMixin implements Dio {
     ]);
     httpClientAdapter = IOHttpClientAdapter();
   }
-
-  static Dio getInstance() => GithubDio._();
 }
