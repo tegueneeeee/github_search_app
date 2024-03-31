@@ -38,6 +38,8 @@ dev_dependencies:
     sdk: flutter
   freezed: ^2.4.7
   go_router_builder: ^2.4.1
+  integration_test:
+    sdk: flutter
   json_serializable: ^6.7.1
   pedantic_mono: ^1.26.0
   retrofit_generator: ^8.1.0

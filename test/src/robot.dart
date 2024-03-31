@@ -33,4 +33,10 @@ class Robot {
     );
     await tester.pumpAndSettle();
   }
+
+  Future<void> searchFlow() async {
+    await home.tapSearchButton();
+    await search.enterTextSearchField(query: 'flutter');
+    search.expectSearchResults();
+  }
 }
