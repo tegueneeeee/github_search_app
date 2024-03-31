@@ -27,7 +27,20 @@ class FakeUserApi implements UserApi {
     int page,
   ) async {
     await delay(addDelay: addDelay);
-    return _userSearchResponse.value;
+    final itemLength = _userSearchResponse.value.items.length;
+    final pageStart = perPage * (page - 1);
+    final pageEnd = perPage * page;
+    if (perPage * page > itemLength) {
+      return _userSearchResponse.value.copyWith(
+        items: _userSearchResponse.value.items
+            .getRange(pageStart, itemLength)
+            .toList(),
+      );
+    }
+    return _userSearchResponse.value.copyWith(
+      items:
+          _userSearchResponse.value.items.getRange(pageStart, pageEnd).toList(),
+    );
   }
 
   @override
