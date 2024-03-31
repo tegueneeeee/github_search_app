@@ -5,6 +5,7 @@ class _EmptyIndicator extends HookConsumerWidget with SearchState {
   Widget build(BuildContext context, WidgetRef ref) {
     final scrollController = useScrollController();
     return AnimatedOpacity(
+      key: SearchPage.emptyIndicatorKey,
       opacity: searchText(ref).isEmpty ? 1 : 0,
       duration: const Duration(milliseconds: 300),
       child: IgnorePointer(

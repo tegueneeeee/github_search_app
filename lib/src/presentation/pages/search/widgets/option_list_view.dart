@@ -5,6 +5,7 @@ class _OptionListView extends ConsumerWidget with SearchState, SearchEvent {
   Widget build(BuildContext context, WidgetRef ref) => CustomScrollView(
         slivers: [
           SliverList(
+            key: SearchPage.optionListViewKey,
             delegate: SliverChildBuilderDelegate(
               childCount: GithubElementCategory.values.length,
               (context, index) => InkWell(

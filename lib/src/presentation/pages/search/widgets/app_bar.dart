@@ -36,6 +36,7 @@ class _AppBar extends HookConsumerWidget
               ),
               const Gap(4),
               TextButton(
+                key: SearchPage.cancelButtonKey,
                 onPressed: () {
                   context.pop();
                 },

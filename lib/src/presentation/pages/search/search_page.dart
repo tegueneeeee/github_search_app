@@ -23,6 +23,10 @@ part 'widgets/option_list_view.dart';
 class SearchPage extends BasePage with SearchState, SearchEvent {
   const SearchPage({super.key});
 
+  static const cancelButtonKey = Key('search_page_cancel_button');
+  static const optionListViewKey = Key('search_page_option_list_view');
+  static const emptyIndicatorKey = Key('search_page_empty_indicator');
+
   @override
   Widget buildBody(BuildContext context, WidgetRef ref) => Stack(
         children: [
