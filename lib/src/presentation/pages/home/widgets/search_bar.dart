@@ -16,7 +16,7 @@ class _SearchBar extends HookWidget {
             }
           },
         );
-        return focusNode.dispose;
+        return;
       },
       const [],
     );
