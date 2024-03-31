@@ -16,38 +16,41 @@ class HomePage extends BasePage {
   @override
   Widget buildBody(BuildContext context, WidgetRef ref) {
     final scrollController = useScrollController();
-    return NestedScrollView(
-      physics: const BouncingScrollPhysics(),
-      controller: scrollController,
-      headerSliverBuilder: (context, innerBoxIsScrolled) => [
-        const SliverGap(48),
-        SliverOverlapAbsorber(
-          handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
-            context,
-          ),
-          sliver: const SliverToBoxAdapter(
-            child: _SearchBar(),
-          ),
-        ),
-      ],
-      body: CustomScrollView(
-        slivers: [
-          const SliverGap(16),
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  Translations.of(context).homePage.favorite,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
-              ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: NestedScrollView(
+        physics: const BouncingScrollPhysics(),
+        controller: scrollController,
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          const SliverGap(48),
+          SliverOverlapAbsorber(
+            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
+              context,
+            ),
+            sliver: const SliverToBoxAdapter(
+              child: _SearchBar(),
             ),
           ),
-          const SliverGap(8),
         ],
+        body: CustomScrollView(
+          slivers: [
+            const SliverGap(16),
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    Translations.of(context).homePage.favorite,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+            const SliverGap(8),
+          ],
+        ),
       ),
     );
   }
