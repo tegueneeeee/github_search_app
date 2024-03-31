@@ -57,10 +57,7 @@ abstract class BasePage extends HookConsumerWidget {
         extendBody: extendBodyBehindAppBar,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         appBar: buildAppBar(context, ref),
-        body: Padding(
-          padding: bodyPadding,
-          child: buildBody(context, ref),
-        ),
+        body: buildBody(context, ref),
         backgroundColor: screenBackgroundColor(context),
         bottomNavigationBar: buildBottomNavigationBar(context),
         bottomSheet: buildBottomSheet(ref),
@@ -82,10 +79,6 @@ abstract class BasePage extends HookConsumerWidget {
 
   @protected
   Widget? buildFloatingActionButton(WidgetRef ref) => null;
-
-  @protected
-  EdgeInsetsGeometry get bodyPadding =>
-      const EdgeInsets.symmetric(horizontal: 16);
 
   @protected
   Color? unSafeAreaColor(BuildContext context) =>
