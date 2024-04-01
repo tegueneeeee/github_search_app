@@ -8,19 +8,23 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'presentation/pages/home/home_robot.dart';
 import 'presentation/pages/search/search_robot.dart';
+import 'presentation/pages/searched/searched_robot.dart';
 
 class Robot {
   Robot(this.tester)
       : home = HomeRobot(tester),
-        search = SearchRobot(tester);
+        search = SearchRobot(tester),
+        searched = SearchedRobot(tester);
 
   final WidgetTester tester;
   final HomeRobot home;
   final SearchRobot search;
+  final SearchedRobot searched;
 
   Future<void> pumpAppWithFakes() async {
     final appBootstrap = AppBootstrap();
-    final container = await appBootstrap.createFakesProviderContainer();
+    final container =
+        await appBootstrap.createFakesProviderContainer(addDelay: false);
     await tester.pumpWidget(
       UncontrolledProviderScope(
         container: container,
@@ -34,9 +38,17 @@ class Robot {
     await tester.pumpAndSettle();
   }
 
-  Future<void> searchFlow() async {
+  Future<void> searchFlow({
+    required String option,
+  }) async {
+    const query = 'flutter';
     await home.tapSearchButton();
-    await search.enterTextSearchField(query: 'flutter');
+    await search.enterTextSearchField(query: query);
     search.expectSearchResults();
+    await search.tapOption(
+      option: option,
+      query: query,
+    );
+    searched.expectPage();
   }
 }
