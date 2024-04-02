@@ -8,12 +8,10 @@ mixin class SearchEvent {
   void onSubmitted(
     WidgetRef ref, {
     required String query,
-    required TextEditingController controller,
   }) {
     if (query.isEmpty) {
       return;
     }
-    controller.clear();
     ref.invalidate(searchTextStateProvider);
     // TODO(KIM): Implement search
   }
