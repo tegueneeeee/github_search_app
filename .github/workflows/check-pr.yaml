@@ -20,4 +20,23 @@ jobs:
               uses: invertase/github-action-dart-analyzer@v3
               with:
                   fatal-infos: true
+
+            - name: Report custom_lint result
+              run: dart run custom_lint
+
+            - name: Check format
+              run: dart format -o none --set-exit-if-changed .
+
+            - name: Run test
+              run: flutter test --no-pub --machine > test_report.log
+              continue-on-error: true
+
+              # https://github.com/dorny/test-reporter
+            - name: Upload test report
+              uses: dorny/test-reporter@v1
+              with:
+                  name: "flutter test"
+                  path: test_report.log
+                  reporter: "flutter-json"
+                  fail-on-error: "true"
             
