@@ -1,4 +1,4 @@
-// ignore_for_file: inference_failure_on_collection_literal
+// ignore_for_file: inference_failure_on_collection_literal, lines_longer_than_80_chars
 
 const kTextRepositorySearchJson = {
   'total_count': 669472,
