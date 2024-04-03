@@ -1,0 +1,23 @@
+name: check-pr
+
+on:
+    pull_request:
+
+jobs:
+    check:
+        runs-on: ubuntu-22.04
+        timeout-minutes: 10
+        steps:
+            # https://github.com/actions/checkout
+            - name: Check out the code
+              uses: actions/checkout@v4
+            
+            - name: Setup Application Runtime
+              uses: ./.github/actions/setup-application-runtime
+
+              # https://github.com/invertase/github-action-dart-analyzer
+            - name: Report analyze
+              uses: invertase/github-action-dart-analyzer@v3
+              with:
+                  fatal-infos: true
+            
