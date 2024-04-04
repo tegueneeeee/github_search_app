@@ -15,9 +15,12 @@ jobs:
             - name: Setup Application Runtime
               uses: ./.github/actions/setup-application-runtime
 
+            - name: Setup dependencies
+              run: flutter pub get
+
               # https://github.com/invertase/github-action-dart-analyzer
             - name: Report analyze
-              uses: invertase/github-action-dart-analyzer@v1
+              uses: invertase/github-action-dart-analyzer@v3
               with:
                   fatal-infos: true
 
