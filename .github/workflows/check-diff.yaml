@@ -1,0 +1,30 @@
+name: Check generated code is latest
+
+on:
+    workflow_dispatch:
+    pull_request:
+        types: [opened, synchronize]
+        paths:
+            - "**.dart"
+            - "**.yaml"
+            - "**./pubspec.lock"
+    
+    jobs:
+        check:
+            runs-on: ubuntu-22.04
+            timeout-minutes: 10
+            steps:
+                # https://github.com/actions/checkout/tree/v4/
+                - name: Check out the code
+                  uses: actions/checkout@v4
+                  
+                - name: Setup Application Runtime
+                  uses: ./.github/actions/setup-application-runtime
+                  
+                - name: Regenerate code
+                  run: dart run build_runner build -d
+
+                - name: Check differece
+                  run: |
+                    git add -N .
+                    git diff --name-only --exit-code
