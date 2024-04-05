@@ -15,3 +15,7 @@ runs:
       with:
         flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
         channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+
+    - name: Setup dependencies
+      run: flutter pub get
+      shell: bash

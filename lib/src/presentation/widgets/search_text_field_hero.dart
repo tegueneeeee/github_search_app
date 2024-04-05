@@ -17,18 +17,15 @@ class SearchTextFieldHero extends HookWidget {
   final bool autofocus;
 
   @override
-  Widget build(BuildContext context) {
-    final controller = useTextEditingController();
-    return Hero(
-      tag: 'search-text-field',
-      child: CupertinoSearchTextField(
-        controller: controller,
-        placeholder: Translations.of(context).widgets.searchTextFieldHero.label,
-        onChanged: onChanged,
-        onSubmitted: onSubmitted,
-        autofocus: autofocus,
-        onTap: onTap,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Hero(
+        tag: 'search-text-field',
+        child: CupertinoSearchTextField(
+          placeholder:
+              Translations.of(context).widgets.searchTextFieldHero.label,
+          onChanged: onChanged,
+          onSubmitted: onSubmitted,
+          autofocus: autofocus,
+          onTap: onTap,
+        ),
+      );
 }
